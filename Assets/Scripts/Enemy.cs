@@ -11,9 +11,11 @@ public class Enemy : MonoBehaviour
     public float speed;
     public NavMeshAgent agent;
     public Transform nexus;
+    [HideInInspector] GameManager _gm;
 
     private void Awake()
     {
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(nexus.position);
         agent.speed = speed;
@@ -22,8 +24,8 @@ public class Enemy : MonoBehaviour
     public void NexusDamage()
     {
             Debug.Log("entro");
-        GameManager.instance.currentHP -= dmg;
-        if (GameManager.instance.currentHP <= 0)
+        _gm.currentHP -= dmg;
+        if (_gm.currentHP <= 0)
         {
             Debug.Log("you lose");
             Destroy(gameObject);

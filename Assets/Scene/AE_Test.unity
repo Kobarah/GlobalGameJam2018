@@ -214,7 +214,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.07999992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.z
@@ -348,7 +348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.07999992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.z
@@ -498,7 +498,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 302933005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -566,6 +566,8 @@ GameObject:
   - component: {fileID: 354064071}
   - component: {fileID: 354064070}
   - component: {fileID: 354064072}
+  - component: {fileID: 354064074}
+  - component: {fileID: 354064073}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -628,7 +630,49 @@ MonoBehaviour:
   - {fileID: 9239461}
   movementTime: 2
   centerPosition: {x: 0, y: 0, z: 0}
-  range: 1
+  range: 15
+--- !u!114 &354064073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 354064069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d028d6f49ca5ca64a893ec3031a4d43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  webs: []
+  spiderWebs: []
+  spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
+  cameraMain: {fileID: 1244499750}
+  clickCount: 0
+  startHP: 0
+  currentHP: 0
+  end: {fileID: 0}
+  start: {fileID: 0}
+  currentTrapID: 0
+  currentStage: 0
+--- !u!114 &354064074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 354064069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798270c6a397e2c439e9f4c2c356eea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  webs: []
+  spiderWebs: []
+  spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
+  cameraMain: {fileID: 1244499750}
+  clickCount: 0
+  startHP: 0
+  currentHP: 0
+  end: {fileID: 0}
+  start: {fileID: 0}
 --- !u!4 &413070526 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361,
@@ -647,7 +691,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.07999992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.z
@@ -869,7 +913,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 954877938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -1080,7 +1124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.07999992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4186064143546946, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1178,7 +1222,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1597632893}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
