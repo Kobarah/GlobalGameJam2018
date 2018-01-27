@@ -4,45 +4,30 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	public SwitchManager switchManager;
+
 	public List<SpiderString> webs;
 	public List<GameObject> spiderWebs;
 	public GameObject spiderWeb;
 	public GameObject cameraMain;
+	public bool isPreparationPhase;			// true = preparation phase; false = enemy waves phase
 	public int clickCount = 0;
 	public int startHP;
 	public int currentHP;
+	public int enemiesPerTurn;
 
+	[HideInInspector]
+	public int enemyCount;
 	[HideInInspector]
 	public GameObject end;
 	[HideInInspector]
 	public GameObject start;
 
-	public static GameManager instance = null;
-
-	//private void Awake()
-	//{
-	//	{
-	//		//Check if instance already exists
-	//		if (instance == null)
-
-	//		//if not, set instance to this
-	//		instance = this;
-
-	//		//If instance already exists and it's not this:
-	//		else if (instance != this)
-
-	//		//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-	//		Destroy(gameObject);
-
-	//		//Sets this to not be destroyed when reloading scene
-	//		DontDestroyOnLoad(gameObject);
-	//	}
-	//}
-
 	void Start()
 	{
 		webs = new List<SpiderString>();
 		spiderWebs = new List<GameObject>();
+		switchManager = FindObjectOfType<SwitchManager>().GetComponent<SwitchManager>();
 	}
 
 	public virtual void Update()
@@ -53,10 +38,24 @@ public class GameManager : MonoBehaviour
 			webs[i].buildTemporaryString(webs[webs.Count - 1].lineToJoint);
 		}
 
+		// Switches to Preparation Phase
+		if (!isPreparationPhase && enemiesPerTurn == 0 && enemyCount == 0)
+		{
+			isPreparationPhase = true;
+			switchManager.SwitchOnPreparationPhase();
+		}
+
 		//if (Input.GetMouseButtonDown(0))
 		//{
 		//	AddWebs();
 		//}
+	}
+
+	// Switches to EnemyWavesPhase DA DECOMMENTARE
+	public void SwitchOnEnemyWavePhase()
+	{
+		isPreparationPhase = false;
+		switchManager.SwitchOnEnemyWavesPhase();
 	}
 
 	public virtual void PlaceSpiderStrings()
