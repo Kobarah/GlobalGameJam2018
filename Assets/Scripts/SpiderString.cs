@@ -66,9 +66,32 @@ public class SpiderString : ScriptableObject {
          if (plane.Raycast(ray, out rayDistance))
          {
              return ray.GetPoint(rayDistance);
-             
          }
  
          return null;
+    }
+
+    private void setActualEnemy()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), out hit))
+        {
+            if (hit.transform.tag == "Enemy")
+            {
+                Traps startTrap = fromJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>();
+                Traps toTrap = toJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>();
+
+                if (hit.distance < startTrap.range)
+                {
+                    startTrap.enemy = hit.transform.gameObject;
+                }
+
+                if (Vector3.Distance(hit.transform.position, toJoint.transform.position) < toTrap.range)
+                {
+                    toTrap.enemy = hit.transform.gameObject;
+                }
+            }
+        }
     }
 }
