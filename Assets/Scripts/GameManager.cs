@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 		for (int i = 0; i < webs.Count; i++)
 		{
 			webs[i].buildString();
-			//webs[i].buildTemporaryString(webs[webs.Count - 1].lineToJoint);
+			webs[i].buildTemporaryString(webs[webs.Count - 1].lineToJoint);
 		}
 
 		PlaceSpiderStrings();
