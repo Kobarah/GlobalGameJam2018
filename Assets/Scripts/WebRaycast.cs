@@ -10,7 +10,7 @@ public class WebRaycast : MonoBehaviour
     public GameObject cameraMain;
     GameObject start;
     GameObject end;
-    public int clickCount;
+    public int clickCount = 0;
 	
 	void Start ()
     {
@@ -26,12 +26,12 @@ public class WebRaycast : MonoBehaviour
         //    {
         //        if (i > 0)
         //        {
-                                                
-        //        }              
+        //            webs[i].buildString();
+        //        }
         //    }
         //}
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -39,22 +39,18 @@ public class WebRaycast : MonoBehaviour
             {
                 if (hit.transform.tag == "WebJoint")
                 {
-                    //webs.Add(Instantiate(webNode, hit.point, Quaternion.identity));  
-
-                    spiderWebs.Add(Instantiate(spiderWeb, hit.transform));
-
                     Debug.Log(hit.transform);
                     if (clickCount == 0)
                     {
                         start = hit.transform.gameObject;
-                        clickCount++;                      
+                        Debug.Log("click 0");
                     }
                     else if(clickCount == 1)
                     {
                         end = hit.transform.gameObject;
                         SpiderString webString = new SpiderString(start,end);
                         webs.Add(webString);
-                        clickCount++;
+                        Debug.Log("click 1");
                     }
                     else
                     {
@@ -62,8 +58,9 @@ public class WebRaycast : MonoBehaviour
                         end = hit.transform.gameObject;
                         SpiderString webString = new SpiderString(start, end);
                         webs.Add(webString);
-                        clickCount++;
+                        Debug.Log("click 2+");
                     }
+                    clickCount++;
                 }          
             }
         }
