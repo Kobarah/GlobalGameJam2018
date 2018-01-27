@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
 
-public class Traps : MonoBehaviour
+public abstract class Traps : MonoBehaviour
 {
     public float fireRate;
     float timer;
@@ -17,16 +17,11 @@ public class Traps : MonoBehaviour
         timer = fireRate;
     }
 
-    public void DamageEnemy(GameObject enemy)
-    {
-        enemy.GetComponent<Enemy>().hp -= dmg;
-        if (enemy.GetComponent<Enemy>().hp <= 0)
-            Destroy(enemy);
-    }
+    public abstract void DamageEnemy(GameObject enemy);
+   
 
     public void Engage(GameObject enemy)
-    {
-        transform.DOLookAt(enemy.transform.position, 0.1f);
+    {        
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -40,11 +35,13 @@ public class Traps : MonoBehaviour
 
     private void Update()
     {
+        //enemy = GetActualEnemy(range);
         
         if (enemy != null)
         {
             Engage(enemy);
         }
+
     }
 
 }
