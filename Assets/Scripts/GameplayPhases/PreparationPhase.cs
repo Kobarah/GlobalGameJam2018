@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class PreparationPhase : GameManager
 {
-	enum PreparationStage
+	public enum PreparationStage
 	{
 		SpiderStringPlacement,
 		TrapPlacement
 	};
 
-	PreparationStage currentStage;
+	public PreparationStage currentStage = PreparationStage.SpiderStringPlacement;
 	public int currentTrapID;
 
-	private void Update()
-	{
-		PlaceSpiderStrings();
-	}
+
+	//private void Update()
+	//{
+	//	PlaceSpiderStrings();
+	//}
 
 	public override void OnActivation()
 	{
@@ -32,11 +33,14 @@ public class PreparationPhase : GameManager
 		}
 	}
 
-	public void PlaceSpiderStrings()
+	public override void PlaceSpiderStrings()
 	{
 		if (currentStage == PreparationStage.SpiderStringPlacement)
 		{
-			// modalità piazzamento fili
+			if (Input.GetMouseButtonDown(0))
+			{
+				AddWebs();
+			}
 		}
 	}
 

@@ -9,9 +9,13 @@ public class GameManager : MonoBehaviour
 	public GameObject spiderWeb;
 	public GameObject cameraMain;
 	public int clickCount = 0;
+	public int startHP;
+	public int currentHP;
 
-	GameObject end;
-	GameObject start;
+	[HideInInspector]
+	public GameObject end;
+	[HideInInspector]
+	public GameObject start;
 
 	public static GameManager instance = null;
 
@@ -21,14 +25,14 @@ public class GameManager : MonoBehaviour
 			//Check if instance already exists
 			if (instance == null)
 
-				//if not, set instance to this
-				instance = this;
+			//if not, set instance to this
+			instance = this;
 
 			//If instance already exists and it's not this:
 			else if (instance != this)
 
-				//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-				Destroy(gameObject);
+			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+			Destroy(gameObject);
 
 			//Sets this to not be destroyed when reloading scene
 			DontDestroyOnLoad(gameObject);
@@ -80,13 +84,19 @@ public class GameManager : MonoBehaviour
 		for (int i = 0; i < webs.Count; i++)
 		{
 			webs[i].buildString();
+			//webs[i].buildTemporaryString(webs[webs.Count - 1].lineToJoint);
 		}
 
-		if (Input.GetMouseButtonDown(0))
-		{
-			AddWebs();
-		}
+		PlaceSpiderStrings();
+
+		//if (Input.GetMouseButtonDown(0))
+		//{
+		//	AddWebs();
+		//}
 	}
+
+	public virtual void PlaceSpiderStrings()
+	{ }
 
 	public virtual void MoveWebstrings()
 	{ }
@@ -94,6 +104,7 @@ public class GameManager : MonoBehaviour
 	public virtual void ClearWebstrings()
 	{ }
 
-	public virtual void OnActivation() { }
+	public virtual void OnActivation()
+	{ }
 
 }
