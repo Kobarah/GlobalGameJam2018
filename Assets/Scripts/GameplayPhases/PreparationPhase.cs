@@ -10,13 +10,13 @@ public class PreparationPhase : GameManager
 		TrapPlacement
 	};
 
+	PreparationStage currentStage;
+	public int currentTrapID;
+
 	private void Update()
 	{
 		PlaceSpiderStrings();
-		PlaceTraps();
 	}
-
-	PreparationStage currentStage;
 
 	public override void OnActivation()
 	{
@@ -40,11 +40,12 @@ public class PreparationPhase : GameManager
 		}
 	}
 
-	public void PlaceTraps()
+	// chiamata da pulsante HUD
+	public void PlaceTraps(int trapID)
 	{
 		if (currentStage == PreparationStage.TrapPlacement)
 		{
-			// modalità piazzamento trappole
+			currentTrapID = trapID;
 		}
 	}
 
