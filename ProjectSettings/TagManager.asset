@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WebJoint
   - Nexus
+  - Enemy
   layers:
   - Default
   - TransparentFX
