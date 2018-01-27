@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CursorManager : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class CursorManager : MonoBehaviour
     {
 		
 	}
+
+    public void StartParticle(Transform target )
+    {
+        mouseTrail.transform.position = target.position;
+        //mouseTrail.transform.rotation = Quaternion.LookRotation(target.normal);
+        var emission = mouseTrail.emission;
+        emission.enabled = true;
+    }
 
     public void KillAllParticles(ParticleSystem mouseTrail)
     {
@@ -31,10 +40,12 @@ public class CursorManager : MonoBehaviour
         // Apply the particle changes to the particle system
         mouseTrail.SetParticles(trailEmission, numParticlesAlive);
 
+        var emission = mouseTrail.emission;
+        emission.enabled = false;
     }
 
     void Update ()
     {
-		
-	}
+        mouseTrail.transform.DOLookAt(Input.mousePosition, 0.1f);
+    }
 }
