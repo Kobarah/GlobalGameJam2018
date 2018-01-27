@@ -54,7 +54,12 @@ public class WebRaycast : MonoBehaviour
     }
 
 	void Update ()
-    {       
+    {
+        for (int i = 0; i < webs.Count; i++)
+        {
+            webs[i].buildString();
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             AddWebs();
