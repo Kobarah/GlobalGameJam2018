@@ -34,14 +34,10 @@ public abstract class Traps : MonoBehaviour
     }
 
     private void Update()
-    {
-        //enemy = GetActualEnemy(range);
-        
+    {       
         if (enemy != null)
         {
             Engage(enemy);
         }
-
     }
-
 }
