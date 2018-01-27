@@ -43,8 +43,9 @@ public class SpiderString : ScriptableObject {
     //RENDERER BUILD METHOD
     public void buildString ()
     {
-        Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
-        Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
+        //Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
+        //Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
+        setActualEnemy();
 
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(0, fromJoint.transform.position);
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(1, toJoint.transform.position);
@@ -66,9 +67,33 @@ public class SpiderString : ScriptableObject {
          if (plane.Raycast(ray, out rayDistance))
          {
              return ray.GetPoint(rayDistance);
-             
          }
  
          return null;
+    }
+
+    public void setActualEnemy()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), out hit))
+        {
+            if (hit.transform.tag == "Enemy")
+            {
+                Traps startTrap = fromJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>();
+                Traps toTrap = toJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>();
+
+                if (hit.distance < startTrap.range)
+                {
+                    Debug.Log("Attacco");
+                    fromJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>().enemy = hit.transform.gameObject;
+                }
+
+                if (Vector3.Distance(hit.transform.position, toJoint.transform.position) < toTrap.range)
+                {
+                    toJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>().enemy = hit.transform.gameObject;
+                }
+            }
+        }
     }
 }

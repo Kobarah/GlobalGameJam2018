@@ -66,18 +66,18 @@ public class PreparationPhase : GameManager
 		{
 			if (hit.transform.tag == "WebJoint")
 			{
-				Debug.Log(hit.transform);
+				//Debug.Log(hit.transform);
 				if (clickCount == 0)
 				{
 					start = hit.transform.gameObject;
-					Debug.Log("click 0");
+					//Debug.Log("click 0");
 				}
 				else if (clickCount == 1)
 				{
 					end = hit.transform.gameObject;
 					SpiderString webString = new SpiderString(start, end);
 					webs.Add(webString);
-					Debug.Log("click 1");
+					//Debug.Log("click 1");
 				}
 				else
 				{
@@ -85,7 +85,7 @@ public class PreparationPhase : GameManager
 					end = hit.transform.gameObject;
 					SpiderString webString = new SpiderString(start, end);
 					webs.Add(webString);
-					Debug.Log("click 2+");
+					//Debug.Log("click 2+");
 				}
 				clickCount++;
 			}
