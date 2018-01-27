@@ -18,6 +18,22 @@ public class Enemy : MonoBehaviour
         agent.SetDestination(nexus.position);
     }
 
+    //public void NexusDamage()
+    //{
+    //    GameManager.instance.currentHp -= dmg;
+    //    if (GameManager.instance.currentHp <= 0)
+    //        Debug.Log("you lose");
+    //    Destroy(gameObject);
+    //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "Nexus")
+        {
+           // NexusDamage();
+        }
+    }
+
     private void Update()
     {
         transform.DOLookAt(Camera.main.transform.position, 0.1f);
