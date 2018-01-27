@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class Enemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(nexus.position);
+    }
+
+    private void Update()
+    {
+        transform.DOLookAt(Camera.main.transform.position, 0.1f);
     }
 
 }
