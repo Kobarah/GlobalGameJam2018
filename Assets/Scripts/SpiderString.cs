@@ -8,7 +8,8 @@ public class SpiderString : ScriptableObject {
     private GameObject fromJoint; //Starting point of the string
     private GameObject toJoint; //Ending point of the string
     private GameObject lineFromJoint; //Starting point of the renderer
-    private GameObject lineToJoint; //Ending point of the renderer
+    public GameObject lineToJoint; //Ending point of the renderer
+    public GameObject lastJoint;
     public GameObject joint;
 
     //GET METHODS
@@ -34,7 +35,7 @@ public class SpiderString : ScriptableObject {
         fromJoint = from;
         toJoint = to;
 
-        joint = GameObject.Find("GameManager").GetComponent<WebRaycast>().spiderWeb;
+        joint = GameManager.instance.spiderWeb;
         lineFromJoint = Instantiate(joint, fromJoint.transform.position, Quaternion.identity);
         lineToJoint = Instantiate(joint, toJoint.transform.position, Quaternion.identity);
     }
@@ -47,5 +48,27 @@ public class SpiderString : ScriptableObject {
 
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(0, fromJoint.transform.position);
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(1, toJoint.transform.position);
+    }
+
+    public void buildTemporaryString(GameObject lj)
+    {
+        lastJoint = lj;
+        lastJoint.GetComponent<LineRenderer>().SetPosition(0, lastJoint.transform.position);
+        lastJoint.GetComponent<LineRenderer>().SetPosition(1, GetCurrentMousePosition().GetValueOrDefault());
+    }
+
+    private Vector3? GetCurrentMousePosition()
+    {
+         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+         var plane = new Plane(Vector3.forward, Vector3.zero);
+ 
+         float rayDistance;
+         if (plane.Raycast(ray, out rayDistance))
+         {
+             return ray.GetPoint(rayDistance);
+             
+         }
+ 
+         return null;
     }
 }
