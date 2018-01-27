@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 		for (int i = 0; i < webs.Count; i++)
 		{
 			webs[i].buildString();
-			webs[i].buildTemporaryString(webs[webs.Count - 1].lineToJoint);
+			//webs[i].buildTemporaryString(webs[webs.Count - 1].lineToJoint);
 		}
 
 		// Switches to Preparation Phase
@@ -44,11 +44,6 @@ public class GameManager : MonoBehaviour
 			isPreparationPhase = true;
 			switchManager.SwitchOnPreparationPhase();
 		}
-
-		//if (Input.GetMouseButtonDown(0))
-		//{
-		//	AddWebs();
-		//}
 	}
 
 	// Switches to EnemyWavesPhase DA DECOMMENTARE
