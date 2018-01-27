@@ -15,7 +15,6 @@ public class Traps : MonoBehaviour
     private void Awake()
     {
         timer = fireRate;
-        transform.DOLookAt(Camera.main.transform.position, 0.1f);
     }
 
     public void DamageEnemy(GameObject enemy)

@@ -16,21 +16,25 @@ public class Enemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(nexus.position);
+        agent.speed = speed;
     }
 
-    //public void NexusDamage()
-    //{
-    //    GameManager.instance.currentHp -= dmg;
-    //    if (GameManager.instance.currentHp <= 0)
-    //        Debug.Log("you lose");
-    //    Destroy(gameObject);
-    //}
+    public void NexusDamage()
+    {
+            Debug.Log("entro");
+        GameManager.instance.currentHP -= dmg;
+        if (GameManager.instance.currentHP <= 0)
+        {
+            Debug.Log("you lose");
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "Nexus")
         {
-           // NexusDamage();
+           NexusDamage();
         }
     }
 
