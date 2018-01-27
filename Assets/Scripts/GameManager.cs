@@ -29,11 +29,13 @@ public class GameManager : MonoBehaviour
 	public Button pauseCentralButton;
 	public Button pauseEscButton;
 	public Button resumeButton;
+	public Button gameOverButton;
 
 	private void Awake()
 	{
 		pauseCentralButton.gameObject.SetActive(false);
-		resumeButton.gameObject.SetActive(true);
+		resumeButton.gameObject.SetActive(false);
+		gameOverButton.gameObject.SetActive(false);
 	}
 
 	void Start()
