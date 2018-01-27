@@ -6,6 +6,7 @@ public class EnemyWavesPhase : GameManager
 {
 	public override void OnActivation()
 	{
+		ClearWebstrings();
 	}
 
 	public override void ClearWebstrings()
