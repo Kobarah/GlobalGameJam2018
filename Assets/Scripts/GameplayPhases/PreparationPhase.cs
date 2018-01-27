@@ -70,26 +70,42 @@ public class PreparationPhase : GameManager
 				if (clickCount == 0)
 				{
 					start = hit.transform.gameObject;
-					Debug.Log("click 0");
 				}
 				else if (clickCount == 1)
 				{
 					end = hit.transform.gameObject;
-					SpiderString webString = new SpiderString(start, end);
-					webs.Add(webString);
-					Debug.Log("click 1");
+                    SpiderString webString = new SpiderString(start, end);
+                    if (isLegit(webString)) webs.Add(webString);
 				}
 				else
 				{
 					start = end;
 					end = hit.transform.gameObject;
 					SpiderString webString = new SpiderString(start, end);
-					webs.Add(webString);
-					Debug.Log("click 2+");
+                    if (isLegit(webString)) webs.Add(webString);
 				}
 				clickCount++;
+                Debug.Log(clickCount);
 			}
 		}
 	}
+
+    public bool isLegit (SpiderString ss)
+    {
+        if (ss.fromJoint == ss.toJoint)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < webs.Count - 1; i++)
+        {
+            if (webs[i].Equals(ss))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 }

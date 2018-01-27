@@ -5,12 +5,12 @@ using UnityEngine;
 public class SpiderString : ScriptableObject {
 
     //VARIABLES
-    private GameObject fromJoint; //Starting point of the string
-    private GameObject toJoint; //Ending point of the string
-    private GameObject lineFromJoint; //Starting point of the renderer
-    public GameObject lineToJoint; //Ending point of the renderer
-    public GameObject lastJoint;
-    public GameObject joint;
+    [HideInInspector] public GameObject fromJoint; //Starting point of the string
+    [HideInInspector] public GameObject toJoint; //Ending point of the string
+    [HideInInspector] public GameObject lineFromJoint; //Starting point of the renderer
+    [HideInInspector] public GameObject lineToJoint; //Ending point of the renderer
+    [HideInInspector] public GameObject lastJoint;
+    [HideInInspector] public GameObject joint;
 
     //GET METHODS
     public Vector3 FromJoint
@@ -43,8 +43,9 @@ public class SpiderString : ScriptableObject {
     //RENDERER BUILD METHOD
     public void buildString ()
     {
-        Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
-        Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
+        //Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
+        //Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
+        setActualEnemy();
 
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(0, fromJoint.transform.position);
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(1, toJoint.transform.position);
@@ -84,14 +85,21 @@ public class SpiderString : ScriptableObject {
 
                 if (hit.distance < startTrap.range)
                 {
-                    startTrap.enemy = hit.transform.gameObject;
+                    fromJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>().enemy = hit.transform.gameObject;
                 }
 
                 if (Vector3.Distance(hit.transform.position, toJoint.transform.position) < toTrap.range)
                 {
-                    toTrap.enemy = hit.transform.gameObject;
+                    toJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>().enemy = hit.transform.gameObject;
                 }
             }
         }
+    }
+
+    public override bool Equals(object other)
+    {
+        SpiderString ss = (SpiderString)other;
+        return (((this.toJoint.transform.position == ss.toJoint.transform.position) && (this.fromJoint.transform.position == ss.fromJoint.transform.position)) 
+            || ((this.toJoint.transform.position == ss.fromJoint.transform.position) && (this.fromJoint.transform.position == ss.toJoint.transform.position)));
     }
 }
