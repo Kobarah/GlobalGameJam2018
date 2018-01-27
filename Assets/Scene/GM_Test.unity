@@ -144,6 +144,7 @@ MonoBehaviour:
   currentHP: 0
   end: {fileID: 0}
   start: {fileID: 0}
+  currentStage: 0
 --- !u!4 &354064071
 Transform:
   m_ObjectHideFlags: 0
@@ -153,7 +154,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.7136855, y: -2.88616, z: 1.1464715}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 576070526}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -208,6 +210,57 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &576070525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 576070526}
+  - component: {fileID: 576070527}
+  m_Layer: 0
+  m_Name: PreparationPhase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &576070526
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 576070525}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 354064071}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &576070527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 576070525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d028d6f49ca5ca64a893ec3031a4d43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  webs: []
+  spiderWebs: []
+  spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
+  cameraMain: {fileID: 1244499750}
+  clickCount: 0
+  startHP: 0
+  currentHP: 0
+  end: {fileID: 0}
+  start: {fileID: 0}
+  currentStage: 0
+  currentTrapID: 0
 --- !u!1001 &606013971
 Prefab:
   m_ObjectHideFlags: 0
@@ -529,57 +582,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7929280bc78b82542bc01c2bd933a361, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1517589307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1517589309}
-  - component: {fileID: 1517589308}
-  m_Layer: 0
-  m_Name: Preparation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1517589308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1517589307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d028d6f49ca5ca64a893ec3031a4d43e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  webs: []
-  spiderWebs: []
-  spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
-  cameraMain: {fileID: 1244499750}
-  clickCount: 0
-  startHP: 0
-  currentHP: 0
-  end: {fileID: 0}
-  start: {fileID: 0}
-  currentStage: 0
-  currentTrapID: 0
---- !u!4 &1517589309
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1517589307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1797185679
 Prefab:
   m_ObjectHideFlags: 0

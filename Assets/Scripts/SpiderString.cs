@@ -35,7 +35,7 @@ public class SpiderString : ScriptableObject {
         fromJoint = from;
         toJoint = to;
 
-        joint = GameManager.instance.spiderWeb;
+		joint = GameObject.Find("GameManager").GetComponent<GameManager>().spiderWeb;
         lineFromJoint = Instantiate(joint, fromJoint.transform.position, Quaternion.identity);
         lineToJoint = Instantiate(joint, toJoint.transform.position, Quaternion.identity);
     }
