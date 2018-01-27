@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiderString : MonoBehaviour {
+public class SpiderString : ScriptableObject {
 
     //VARIABLES
-    private Vector3 fromJoint; //Starting point of the string
-    private Vector3 toJoint; //Ending point of the string
-    private GameObject lineFromJoint;
-    private GameObject lineToJoint;
+    private GameObject fromJoint; //Starting point of the string
+    private GameObject toJoint; //Ending point of the string
+    private GameObject lineFromJoint; //Starting point of the renderer
+    private GameObject lineToJoint; //Ending point of the renderer
     public GameObject joint;
 
     //GET METHODS
@@ -16,7 +16,7 @@ public class SpiderString : MonoBehaviour {
     {
         get
         {
-            return fromJoint;
+            return fromJoint.transform.position;
         }
     }
 
@@ -24,36 +24,29 @@ public class SpiderString : MonoBehaviour {
     {
         get
         {
-            return toJoint;
+            return toJoint.transform.position;
         }
     }
 
     //CONSTRUCTOR METHOD
     public SpiderString(GameObject from, GameObject to)
     {
-        fromJoint = from.transform.position;
-        toJoint = to.transform.position;
-        lineFromJoint = Instantiate(joint, fromJoint, Quaternion.identity);
-        lineToJoint = Instantiate(joint, toJoint, Quaternion.identity);
+        fromJoint = from;
+        toJoint = to;
     }
 
-
+    //RENDERER BUILD METHOD
     public void buildString ()
     {
-        Physics.Raycast(fromJoint, (fromJoint - toJoint));
-        Debug.DrawRay(fromJoint, (fromJoint - toJoint), Color.red);
+        joint = GameObject.Find("GameManager").GetComponent<WebRaycast>().spiderWeb;
 
-        lineFromJoint.GetComponent<LineRenderer>().SetPosition(0, fromJoint);
-        lineToJoint.GetComponent<LineRenderer>().SetPosition(1, toJoint);
+        lineFromJoint = Instantiate(joint, fromJoint.transform.position, Quaternion.identity);
+        lineToJoint = Instantiate(joint, toJoint.transform.position, Quaternion.identity);
+
+        Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
+        Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
+
+        lineFromJoint.GetComponent<LineRenderer>().SetPosition(0, fromJoint.transform.position);
+        lineFromJoint.GetComponent<LineRenderer>().SetPosition(1, toJoint.transform.position);
     }
-
-    void Start ()
-    {
-		
-	}
-	
-	void Update ()
-    {
-		
-	}
 }
