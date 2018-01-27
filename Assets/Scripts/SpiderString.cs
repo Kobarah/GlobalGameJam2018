@@ -33,16 +33,15 @@ public class SpiderString : ScriptableObject {
     {
         fromJoint = from;
         toJoint = to;
+
+        joint = GameObject.Find("GameManager").GetComponent<WebRaycast>().spiderWeb;
+        lineFromJoint = Instantiate(joint, fromJoint.transform.position, Quaternion.identity);
+        lineToJoint = Instantiate(joint, toJoint.transform.position, Quaternion.identity);
     }
 
     //RENDERER BUILD METHOD
     public void buildString ()
     {
-        joint = GameObject.Find("GameManager").GetComponent<WebRaycast>().spiderWeb;
-
-        lineFromJoint = Instantiate(joint, fromJoint.transform.position, Quaternion.identity);
-        lineToJoint = Instantiate(joint, toJoint.transform.position, Quaternion.identity);
-
         Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
         Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
 
