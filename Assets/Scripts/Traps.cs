@@ -22,11 +22,7 @@ public abstract class Traps : MonoBehaviour
 
     public void Engage(GameObject enemy)
     {        
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-        }
-        else
+        if (timer < 0)
         {
             DamageEnemy(enemy);
             timer = fireRate;
@@ -34,7 +30,8 @@ public abstract class Traps : MonoBehaviour
     }
 
     private void Update()
-    {       
+    {
+        timer -= Time.deltaTime;
         if (enemy != null)
         {
             Engage(enemy);

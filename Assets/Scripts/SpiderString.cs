@@ -43,8 +43,9 @@ public class SpiderString : ScriptableObject {
     //RENDERER BUILD METHOD
     public void buildString ()
     {
-        Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
-        Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
+        //Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
+        //Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
+        setActualEnemy();
 
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(0, fromJoint.transform.position);
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(1, toJoint.transform.position);
@@ -71,7 +72,7 @@ public class SpiderString : ScriptableObject {
          return null;
     }
 
-    private void setActualEnemy()
+    public void setActualEnemy()
     {
         RaycastHit hit;
 
@@ -84,12 +85,13 @@ public class SpiderString : ScriptableObject {
 
                 if (hit.distance < startTrap.range)
                 {
-                    startTrap.enemy = hit.transform.gameObject;
+                    Debug.Log("Attacco");
+                    fromJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>().enemy = hit.transform.gameObject;
                 }
 
                 if (Vector3.Distance(hit.transform.position, toJoint.transform.position) < toTrap.range)
                 {
-                    toTrap.enemy = hit.transform.gameObject;
+                    toJoint.GetComponent<JointInfo>().activeTrap.GetComponent<Traps>().enemy = hit.transform.gameObject;
                 }
             }
         }

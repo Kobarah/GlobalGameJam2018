@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class JointInfo : MonoBehaviour
 {
-    [HideInInspector] public GameObject activeTrap;
+    public GameObject activeTrap;
 }
