@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 	public SwitchManager switchManager;
 
+	public List<GameObject> enemyTypes;
 	public List<SpiderString> webs;
 	public List<GameObject> spiderWebs;
 	public GameObject spiderWeb;
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
 	public int startHP;
 	public int currentHP;
 	public int enemiesPerTurn;
+	private bool isPaused;
 
 	[HideInInspector]
 	public int enemyCount;
@@ -22,6 +25,16 @@ public class GameManager : MonoBehaviour
 	public GameObject end;
 	[HideInInspector]
 	public GameObject start;
+
+	public Button pauseCentralButton;
+	public Button pauseEscButton;
+	public Button resumeButton;
+
+	private void Awake()
+	{
+		pauseCentralButton.gameObject.SetActive(false);
+		resumeButton.gameObject.SetActive(true);
+	}
 
 	void Start()
 	{
@@ -44,6 +57,11 @@ public class GameManager : MonoBehaviour
 			isPreparationPhase = true;
 			switchManager.SwitchOnPreparationPhase();
 		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			PauseGame();
+		}
 	}
 
 	// Switches to EnemyWavesPhase DA DECOMMENTARE
@@ -51,6 +69,26 @@ public class GameManager : MonoBehaviour
 	{
 		isPreparationPhase = false;
 		switchManager.SwitchOnEnemyWavesPhase();
+	}
+
+	public void PauseGame()
+	{
+		if (isPaused)
+		{
+			pauseCentralButton.gameObject.SetActive(false);
+			pauseEscButton.gameObject.SetActive(true);
+			resumeButton.gameObject.SetActive(false);
+			Time.timeScale = 1;
+			isPaused = false;
+		}
+		else
+		{
+			pauseCentralButton.gameObject.SetActive(true);
+			pauseEscButton.gameObject.SetActive(false);
+			resumeButton.gameObject.SetActive(true);
+			Time.timeScale = 0;
+			isPaused = true;
+		}
 	}
 
 	public virtual void PlaceSpiderStrings()
