@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PreparationPhase : GameManager
 {
-	enum PreparationStage
+	public enum PreparationStage
 	{
 		SpiderStringPlacement,
 		TrapPlacement
 	};
 
-	PreparationStage currentStage;
 	public int currentTrapID;
+	public PreparationStage currentStage = PreparationStage.SpiderStringPlacement;
 
-	private void Update()
+	public override void Update()
 	{
+		base.Update();
 		PlaceSpiderStrings();
 	}
 
@@ -24,19 +25,19 @@ public class PreparationPhase : GameManager
 		ClearWebstrings();
 	}
 
-	public void ChangeStage()
-	{
-		// if (contatore nella condizione corretta)
-		{
-			currentStage = PreparationStage.TrapPlacement;
-		}
-	}
+	//public void ChangeStage()
+	//{
+	//	// if (contatore nella condizione corretta)
+	//	{
+	//		currentStage = PreparationStage.TrapPlacement;
+	//	}
+	//}
 
-	public void PlaceSpiderStrings()
+	public override void PlaceSpiderStrings()
 	{
-		if (currentStage == PreparationStage.SpiderStringPlacement)
+		if (this.currentStage == PreparationStage.SpiderStringPlacement && Input.GetMouseButtonDown(0))
 		{
-			// modalità piazzamento fili
+			AddWebs();
 		}
 	}
 
@@ -55,6 +56,40 @@ public class PreparationPhase : GameManager
 
 	public override void MoveWebstrings()
 	{		
+	}
+
+	public void AddWebs()
+	{
+		RaycastHit hit;
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(cameraMain.transform.position, ray.direction, out hit))
+		{
+			if (hit.transform.tag == "WebJoint")
+			{
+				Debug.Log(hit.transform);
+				if (clickCount == 0)
+				{
+					start = hit.transform.gameObject;
+					Debug.Log("click 0");
+				}
+				else if (clickCount == 1)
+				{
+					end = hit.transform.gameObject;
+					SpiderString webString = new SpiderString(start, end);
+					webs.Add(webString);
+					Debug.Log("click 1");
+				}
+				else
+				{
+					start = end;
+					end = hit.transform.gameObject;
+					SpiderString webString = new SpiderString(start, end);
+					webs.Add(webString);
+					Debug.Log("click 2+");
+				}
+				clickCount++;
+			}
+		}
 	}
 
 }
