@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class MouseOver : MonoBehaviour
 {
+    public PreparationPhase preparationPhase;
+
     void OnMouseOver()
     {
+        if (preparationPhase.currentStage == PreparationPhase.PreparationStage.SpiderStringPlacement && Input.GetMouseButtonDown(0))
+        {
+            preparationPhase.AddWebs(gameObject);
+        }
+        if (preparationPhase.currentStage == PreparationPhase.PreparationStage.TrapPlacement && Input.GetMouseButtonDown(0))
+        {
+            preparationPhase.AddTurrets();
+        }
+
         transform.GetChild(0).gameObject.SetActive(true);
     }
 

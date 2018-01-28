@@ -36,7 +36,7 @@ public class PreparationPhase : GameManager
 		}
 	}
 
-	public override void PlaceSpiderStrings()
+	/*public override void PlaceSpiderStrings()
 	{
 		if (this.currentStage == PreparationStage.SpiderStringPlacement && Input.GetMouseButtonDown(0))
 		{
@@ -46,7 +46,7 @@ public class PreparationPhase : GameManager
 		{
 			AddTurrets();
 		}
-	}
+	}*/
 
 	// Instantiates traps
 	public void PlaceTraps(int trapID)
@@ -71,42 +71,35 @@ public class PreparationPhase : GameManager
 	{		
 	}
 
-	public void AddWebs()
+    public void AddWebs(GameObject joint)
 	{
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(cameraMain.transform.position, ray.direction, out hit))
-		{
-			if (hit.transform.tag == "WebJoint")
-			{
-				Debug.Log(hit.transform);
-				if (clickCount == 0)
-				{
-					start = hit.transform.gameObject;
-				}
-				else if (clickCount == 1)
-				{
-                    SpiderString webString = new SpiderString(start, hit.transform.gameObject);
-                    if (isLegit(webString))
-                    {
-                        webs.Add(webString);
-                        end = hit.transform.gameObject;
-                    }
-                }
-				else
-				{
-					start = end;
-					SpiderString webString = new SpiderString(start, hit.transform.gameObject);
-                    if (isLegit(webString))
-                    {
-                        webs.Add(webString);
-                        end = hit.transform.gameObject;
-                    }
-                }
-				clickCount++;
-                Debug.Log(clickCount);
-			}
-		}
+        if (clickCount == 0)
+        {
+            start = joint;
+            clickCount++;
+        }
+        else if (clickCount == 1)
+        {
+            SpiderString webString = new SpiderString(start, joint);
+            if (isLegit(webString))
+            {
+                webs.Add(webString);
+                end = joint;
+                Debug.Log(end);
+                start = end;
+            }
+        }
+        else
+        {
+            SpiderString webString = new SpiderString(start, joint);
+            if (isLegit(webString))
+            {
+                webs.Add(webString);
+                end = joint;
+            }
+            clickCount++;
+            Debug.Log(clickCount);
+        }
 	}
 
 	public void AddTurrets()
