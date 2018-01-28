@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	public List<GameObject> enemyTypes;
 	public List<SpiderString> webs;
 	public List<GameObject> spiderWebs;
+	public List<GameObject> turrets;
 	public GameObject spiderWeb;
 	public GameObject cameraMain;
 	public bool isPreparationPhase;			// true = preparation phase; false = enemy waves phase
@@ -32,17 +33,11 @@ public class GameManager : MonoBehaviour
 	public Button resumeButton;
 	public Button gameOverButton;
 
-	private void Awake()
-	{
-        //pauseCentralButton.gameObject.SetActive(false);
-        //resumeButton.gameObject.SetActive(false);
-        //gameOverButton.gameObject.SetActive(false);
-    }
-
     void Start()
 	{
 		webs = new List<SpiderString>();
 		spiderWebs = new List<GameObject>();
+		turrets = new List<GameObject>();
 		switchManager = FindObjectOfType<SwitchManager>().GetComponent<SwitchManager>();
 	}
 
@@ -67,7 +62,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	// Switches to EnemyWavesPhase DA DECOMMENTARE
+	// Switches to EnemyWavesPhase
 	public void SwitchOnEnemyWavePhase()
 	{
 		isPreparationPhase = false;

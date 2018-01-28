@@ -10,6 +10,7 @@ public class PreparationPhase : GameManager
 		TrapPlacement
 	};
 
+	public int maxLinksCount = 5;
 	public int currentTrapID;
 	public PreparationStage currentStage = PreparationStage.SpiderStringPlacement;
 
@@ -17,21 +18,23 @@ public class PreparationPhase : GameManager
 	{
 		base.Update();
 		PlaceSpiderStrings();
+		ChangeStage();
 	}
 
 	public override void OnActivation()
 	{
+		maxLinksCount++;
 		currentStage = PreparationStage.SpiderStringPlacement;
 		ClearWebstrings();
 	}
 
-	//public void ChangeStage()
-	//{
-	//	// if (contatore nella condizione corretta)
-	//	{
-	//		currentStage = PreparationStage.TrapPlacement;
-	//	}
-	//}
+	public void ChangeStage()
+	{
+		if (webs.Count >= maxLinksCount)
+		{
+			currentStage = PreparationStage.TrapPlacement;
+		}
+	}
 
 	public override void PlaceSpiderStrings()
 	{
@@ -41,12 +44,18 @@ public class PreparationPhase : GameManager
 		}
 	}
 
-	// chiamata da pulsante HUD
+	// Instantiates traps
 	public void PlaceTraps(int trapID)
 	{
 		if (currentStage == PreparationStage.TrapPlacement)
 		{
-			currentTrapID = trapID;
+			for (int i = 0; i < turrets.Count - 1; i++)
+			{
+				if (trapID == i)
+				{
+					// turrets[i]
+				}
+			}
 		}
 	}
 
