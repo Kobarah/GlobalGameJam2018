@@ -44,12 +44,18 @@ public class PreparationPhase : GameManager
 		}
 	}
 
-	// chiamata da pulsante HUD
+	// Instantiates traps
 	public void PlaceTraps(int trapID)
 	{
 		if (currentStage == PreparationStage.TrapPlacement)
 		{
-			currentTrapID = trapID;
+			for (int i = 0; i < turrets.Count - 1; i++)
+			{
+				if (trapID == i)
+				{
+					// turrets[i]
+				}
+			}
 		}
 	}
 
