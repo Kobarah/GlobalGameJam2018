@@ -6,11 +6,11 @@ public class SwitchManager : MonoBehaviour
 {
 	public PreparationPhase preparationPhase;
 	public EnemyWavesPhase enemyWavesPhase;
-	//public GameManager gameManager;
+	public GameManager gameManager;
 
 	public void SwitchOnPreparationPhase()
 	{
-		Debug.Log("Entra nel metodo");
+		//Debug.Log("Entra nel metodo");
 		preparationPhase.enabled = true;
 		enemyWavesPhase.enabled = false;
 		preparationPhase.OnActivation();
@@ -20,11 +20,14 @@ public class SwitchManager : MonoBehaviour
 
 	public void SwitchOnEnemyWavesPhase()
 	{
-		enemyWavesPhase.enabled = true;
+        Debug.Log("Entra nel metodo");
+        enemyWavesPhase.enabled = true;
 		preparationPhase.enabled = false;
 		enemyWavesPhase.OnActivation();
-		enemyWavesPhase.enemiesPerTurn++;
-		enemyWavesPhase.totalEnemies = enemyWavesPhase.enemiesPerTurn;
-	}
+		gameManager.enemiesPerTurn+=2;
+        enemyWavesPhase.enemiesPerTurn += 2;
+        gameManager.totalEnemies = enemyWavesPhase.enemiesPerTurn;
+        enemyWavesPhase.totalEnemies = enemyWavesPhase.enemiesPerTurn;
+    }
 
 }

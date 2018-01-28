@@ -214,14 +214,18 @@ MonoBehaviour:
   enemyTypes: []
   webs: []
   spiderWebs: []
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 0}
   isPreparationPhase: 0
   clickCount: 0
   startHP: 0
   currentHP: 0
-  enemiesPerTurn: 0
+  enemiesPerTurn: 10
   totalEnemies: 0
   enemyCount: 0
   end: {fileID: 0}
@@ -249,7 +253,11 @@ MonoBehaviour:
   - {fileID: 1098881117570170, guid: 35cca9a403728cf4384198299bc946fc, type: 2}
   webs: []
   spiderWebs: []
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 0}
   isPreparationPhase: 0
@@ -294,7 +302,11 @@ MonoBehaviour:
   enemyTypes: []
   webs: []
   spiderWebs: []
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 0}
   isPreparationPhase: 0
