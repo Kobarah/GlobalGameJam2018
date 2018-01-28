@@ -34,9 +34,9 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-        pauseCentralButton.gameObject.SetActive(false);
-        resumeButton.gameObject.SetActive(false);
-        gameOverButton.gameObject.SetActive(false);
+        //pauseCentralButton.gameObject.SetActive(false);
+        //resumeButton.gameObject.SetActive(false);
+        //gameOverButton.gameObject.SetActive(false);
     }
 
     void Start()
