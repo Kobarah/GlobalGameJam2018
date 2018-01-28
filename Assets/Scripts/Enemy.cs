@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         agent.speed = speed;
     }
 
-    public void NexusDamage()
+    public void NexusDamage(Animator anim)
     {
             Debug.Log("entro");
         _gm.currentHP -= dmg;
@@ -32,13 +32,14 @@ public class Enemy : MonoBehaviour
         }
         Destroy(gameObject);
         _gm.enemyCount--;
+        anim.SetTrigger("Damage");
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "Nexus")
         {
-           NexusDamage();
+           NexusDamage(other.transform.GetChild(0).GetComponent<Animator>());
         }
     }
 
