@@ -43,8 +43,6 @@ public class SpiderString : ScriptableObject {
     //RENDERER BUILD METHOD
     public void buildString ()
     {
-        //Physics.Raycast(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position));
-        //Debug.DrawRay(fromJoint.transform.position, (toJoint.transform.position - fromJoint.transform.position), Color.red);
         setActualEnemy();
 
         lineFromJoint.GetComponent<LineRenderer>().SetPosition(0, fromJoint.transform.position);

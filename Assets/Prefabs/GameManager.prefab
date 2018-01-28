@@ -143,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b708c294eac2b44a078ef000e2a37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseTrail: {fileID: 0}
+  mouseTrail: {fileID: 198884606642971668, guid: 702ddd1fa9be3884286744ba1a3fb4c7,
+    type: 2}
   color:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
@@ -213,6 +214,7 @@ MonoBehaviour:
   enemyTypes: []
   webs: []
   spiderWebs: []
+  spawnPoints: []
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 0}
   isPreparationPhase: 0
@@ -220,6 +222,7 @@ MonoBehaviour:
   startHP: 0
   currentHP: 0
   enemiesPerTurn: 0
+  totalEnemies: 0
   enemyCount: 0
   end: {fileID: 0}
   start: {fileID: 0}
@@ -246,6 +249,7 @@ MonoBehaviour:
   - {fileID: 1098881117570170, guid: 35cca9a403728cf4384198299bc946fc, type: 2}
   webs: []
   spiderWebs: []
+  spawnPoints: []
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 0}
   isPreparationPhase: 0
@@ -253,6 +257,7 @@ MonoBehaviour:
   startHP: 0
   currentHP: 3
   enemiesPerTurn: 10
+  totalEnemies: 0
   enemyCount: 0
   end: {fileID: 0}
   start: {fileID: 0}
@@ -289,6 +294,7 @@ MonoBehaviour:
   enemyTypes: []
   webs: []
   spiderWebs: []
+  spawnPoints: []
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 0}
   isPreparationPhase: 0
@@ -296,6 +302,7 @@ MonoBehaviour:
   startHP: 0
   currentHP: 0
   enemiesPerTurn: 0
+  totalEnemies: 0
   enemyCount: 0
   end: {fileID: 0}
   start: {fileID: 0}
@@ -303,5 +310,7 @@ MonoBehaviour:
   pauseEscButton: {fileID: 0}
   resumeButton: {fileID: 0}
   gameOverButton: {fileID: 0}
-  currentTrapID: 0
+  turrets: []
+  maxLinksCount: 5
+  currentTrapID: {fileID: 0}
   currentStage: 0
