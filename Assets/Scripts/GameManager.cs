@@ -63,6 +63,12 @@ public class GameManager : MonoBehaviour
 		{
 			PauseGame();
 		}
+
+		if (this.currentHP <= 0)
+		{
+			Time.timeScale = 0;
+			gameOverButton.gameObject.SetActive(true);
+		}
 	}
 
 	// Switches to EnemyWavesPhase
