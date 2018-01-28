@@ -101,6 +101,7 @@ public class PreparationPhase : GameManager
             {
                 webs.Add(webString);
                 end = joint;
+                start = end;
             }
             clickCount++;
             Debug.Log(clickCount);

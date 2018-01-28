@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1101496751728816
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1103083932823470
 GameObject:
   m_ObjectHideFlags: 1
@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1427826837015086
 GameObject:
   m_ObjectHideFlags: 1
@@ -526,7 +526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1923151137630764
 GameObject:
   m_ObjectHideFlags: 1
@@ -562,7 +562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1954680787850538
 GameObject:
   m_ObjectHideFlags: 1
@@ -2607,9 +2607,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnTime: 5
-  Choose: 0
+  Choose: 2
   timer: 0
   _gm: {fileID: 0}
+  enemyWavesPhase: {fileID: 0}
 --- !u!114 &114352959844234240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2622,9 +2623,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnTime: 2
-  Choose: 3
+  Choose: 2
   timer: 0
   _gm: {fileID: 0}
+  enemyWavesPhase: {fileID: 0}
 --- !u!114 &114668548984720152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2637,9 +2639,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnTime: 2
-  Choose: 3
+  Choose: 2
   timer: 0
   _gm: {fileID: 0}
+  enemyWavesPhase: {fileID: 0}
 --- !u!114 &114772772915143530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2652,6 +2655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnTime: 2
-  Choose: 3
+  Choose: 2
   timer: 0
   _gm: {fileID: 0}
+  enemyWavesPhase: {fileID: 0}
