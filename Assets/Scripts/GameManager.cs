@@ -27,16 +27,16 @@ public class GameManager : MonoBehaviour
 	[HideInInspector]
 	public GameObject start;
 
-	public Button pauseCentralButton;
+	public GameObject pauseCentralButton;
 	public Button pauseEscButton;
 	public Button resumeButton;
 	public Button gameOverButton;
 
 	private void Awake()
 	{
-        pauseCentralButton.gameObject.SetActive(false);
-        resumeButton.gameObject.SetActive(false);
-        gameOverButton.gameObject.SetActive(false);
+        //pauseCentralButton.gameObject.SetActive(false);
+        //resumeButton.gameObject.SetActive(false);
+        //gameOverButton.gameObject.SetActive(false);
     }
 
     void Start()
