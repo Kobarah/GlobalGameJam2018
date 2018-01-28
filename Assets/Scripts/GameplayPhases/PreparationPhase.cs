@@ -102,22 +102,15 @@ public class PreparationPhase : GameManager
         }
 	}
 
-	public void AddTurrets()
+	public void AddTurrets(GameObject joint)
 	{
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(cameraMain.transform.position, ray.direction, out hit))
-		{
-			if (hit.transform.tag == "WebJoint")
-			{
-				if (hit.transform.GetComponent<JointInfo>().activeTrap == null && currentTrapID != null)
-				{					
-					hit.transform.GetComponent<JointInfo>().activeTrap = Instantiate(currentTrapID, hit.transform);
-					hit.transform.GetComponent<JointInfo>().activeTrap.transform.position = hit.transform.position;
-				}
-			}
-		}
-	}
+        if (joint.transform.GetComponent<JointInfo>().activeTrap == null && currentTrapID != null)
+        {
+            joint.transform.GetComponent<JointInfo>().activeTrap = Instantiate(currentTrapID, joint.transform);
+            joint.transform.GetComponent<JointInfo>().activeTrap.transform.position = joint.transform.position;
+        }
+
+    }
 
 	public bool isLegit (SpiderString ss)
     {

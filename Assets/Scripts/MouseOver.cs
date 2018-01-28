@@ -14,7 +14,7 @@ public class MouseOver : MonoBehaviour
         }
         if (preparationPhase.currentStage == PreparationPhase.PreparationStage.TrapPlacement && Input.GetMouseButtonDown(0))
         {
-            preparationPhase.AddTurrets();
+            preparationPhase.AddTurrets(gameObject);
         }
 
         transform.GetChild(0).gameObject.SetActive(true);
