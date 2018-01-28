@@ -12,7 +12,7 @@ public class MouseOver : MonoBehaviour
         {
             preparationPhase.AddWebs(gameObject);
         }
-        if (preparationPhase.currentStage == PreparationPhase.PreparationStage.TrapPlacement && Input.GetMouseButtonDown(0))
+        else if (preparationPhase.currentStage == PreparationPhase.PreparationStage.TrapPlacement && Input.GetMouseButtonDown(0))
         {
             preparationPhase.AddTurrets(gameObject);
         }

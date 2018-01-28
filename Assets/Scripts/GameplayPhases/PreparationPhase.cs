@@ -58,7 +58,7 @@ public class PreparationPhase : GameManager
 	{
 		if (currentStage == PreparationStage.TrapPlacement)
 		{
-			for (int i = 0; i < turrets.Count - 1; i++)
+			for (int i = 0; i < turrets.Count; i++)
 			{
 				if (trapID == i)
 				{
@@ -109,10 +109,11 @@ public class PreparationPhase : GameManager
 
 	public void AddTurrets(GameObject joint)
 	{
-        if (joint.transform.GetComponent<JointInfo>().activeTrap == null && currentTrapID != null)
+        Debug.Log(currentTrapID);
+        if (joint.GetComponent<JointInfo>().activeTrap == null && currentTrapID != null)
         {
-            joint.transform.GetComponent<JointInfo>().activeTrap = Instantiate(currentTrapID, joint.transform);
-            joint.transform.GetComponent<JointInfo>().activeTrap.transform.position = joint.transform.position;
+            joint.GetComponent<JointInfo>().activeTrap = Instantiate(currentTrapID, joint.transform);
+            joint.GetComponent<JointInfo>().activeTrap.transform.position = joint.transform.position;
         }
 
     }
