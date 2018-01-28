@@ -114,7 +114,7 @@ public class PreparationPhase : GameManager
         if (joint.GetComponent<JointInfo>().activeTrap == null && currentTrapID != null)
         {
             joint.GetComponent<JointInfo>().activeTrap = Instantiate(currentTrapID, joint.transform);
-            joint.GetComponent<JointInfo>().activeTrap.transform.position = joint.transform.position;
+            joint.GetComponent<JointInfo>().activeTrap.transform.position = joint.transform.position + new Vector3(0,1,0);
         }
 
     }

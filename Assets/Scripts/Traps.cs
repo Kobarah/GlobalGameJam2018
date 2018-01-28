@@ -33,6 +33,8 @@ public abstract class Traps : MonoBehaviour
 
     private void Update()
     {
+       transform.DOLookAt(Camera.main.transform.position, 0.1f);
+
         timer -= Time.deltaTime;
         if (enemy != null)
         {
