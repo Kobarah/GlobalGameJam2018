@@ -10,7 +10,7 @@ public class Movements : MonoBehaviour
     public Vector3 centerPosition;
     List<Vector3> originalJoints;
     public float range;
-
+    public Animator anim;
 
     void Awake ()
     {
@@ -30,6 +30,7 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[0] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[0];
             joints[0].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
@@ -41,6 +42,7 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[1] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[1];
             joints[1].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
@@ -52,6 +54,7 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[2] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[2];
             joints[2].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
@@ -63,6 +66,7 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[3] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[3];
             joints[3].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
@@ -75,6 +79,7 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[4] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[4];
             joints[4].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
@@ -86,6 +91,7 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[5] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[5];
             joints[5].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
@@ -97,6 +103,7 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[6] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[6];
             joints[6].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
@@ -108,10 +115,16 @@ public class Movements : MonoBehaviour
             Vector3 destination = (originalJoints[7] - centerPosition).normalized * range;
             Vector3 sum = destination + originalJoints[7];
             joints[7].DOMove(sum, movementTime * 2);
+            anim.SetBool("Attack", true);
         }
         else
         {
             joints[7].DOMove(originalJoints[7], movementTime);
+        }
+
+        if(Input.anyKey == false)
+        {
+            anim.SetBool("Attack", false);
         }
     }
 }
