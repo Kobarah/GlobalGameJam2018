@@ -11,9 +11,11 @@ public abstract class Traps : MonoBehaviour
     public int dmg;
     public float range;
     public GameObject enemy;
+    [HideInInspector] public GameManager _gm;
 
     private void Awake()
     {
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         timer = fireRate;
     }
 

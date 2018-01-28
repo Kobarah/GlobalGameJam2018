@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	public SwitchManager switchManager;
 
+    public GameObject nexus;
 	public List<GameObject> enemyTypes;
 	public List<SpiderString> webs;
 	public List<GameObject> spiderWebs;
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
 	public int enemiesPerTurn;
 	private bool isPaused;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public int enemyCount;
 	[HideInInspector]
 	public GameObject end;
@@ -33,12 +34,12 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-		pauseCentralButton.gameObject.SetActive(false);
-		resumeButton.gameObject.SetActive(false);
-		gameOverButton.gameObject.SetActive(false);
-	}
+        pauseCentralButton.gameObject.SetActive(false);
+        resumeButton.gameObject.SetActive(false);
+        gameOverButton.gameObject.SetActive(false);
+    }
 
-	void Start()
+    void Start()
 	{
 		webs = new List<SpiderString>();
 		spiderWebs = new List<GameObject>();

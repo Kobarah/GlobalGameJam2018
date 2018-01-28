@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 23362147099800750}
   - component: {fileID: 195201443580595460}
   - component: {fileID: 114258111432256908}
-  - component: {fileID: 54755885711667846}
+  - component: {fileID: 54313332592147702}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098881117570170}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54755885711667846
+--- !u!54 &54313332592147702
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   dmg: 1
-  speed: 5
+  speed: 10
   agent: {fileID: 0}
   nexus: {fileID: 0}
 --- !u!195 &195201443580595460
