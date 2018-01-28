@@ -6,7 +6,7 @@ public class SwitchManager : MonoBehaviour
 {
 	public PreparationPhase preparationPhase;
 	public EnemyWavesPhase enemyWavesPhase;
-	public GameManager gameManager;
+	//public GameManager gameManager;
 
 	public void SwitchOnPreparationPhase()
 	{
@@ -15,7 +15,7 @@ public class SwitchManager : MonoBehaviour
 		enemyWavesPhase.enabled = false;
 		preparationPhase.OnActivation();
 		preparationPhase.maxLinksCount++;
-		gameManager.isPreparationPhase = true;
+		//gameManager.isPreparationPhase = true;
 	}
 
 	public void SwitchOnEnemyWavesPhase()
