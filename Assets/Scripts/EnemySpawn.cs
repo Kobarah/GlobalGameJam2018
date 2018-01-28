@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpawnEnemyType { enemy1 = 0, enemy2 = 1, enemy3 = 2, Random = 3};
+public enum SpawnEnemyType { enemy1 = 0, enemy2 = 1, Random = 2};
 
 public class EnemySpawn : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class EnemySpawn : MonoBehaviour
         {
             Vector3 pos = gameObject.transform.position;
             Quaternion rot = gameObject.transform.rotation;
-            Instantiate(_gm.enemyTypes[Random.Range(1,3)], pos, rot);
+            Instantiate(_gm.enemyTypes[Random.Range(0,2)], pos, rot);
             _gm.enemyCount++;
             //enemyWavesPhase.enemyCount++;
         }
