@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 	[HideInInspector]
 	public GameObject start;
 
-	public Button pauseCentralButton;
+	public GameObject pauseCentralButton;
 	public Button pauseEscButton;
 	public Button resumeButton;
 	public Button gameOverButton;

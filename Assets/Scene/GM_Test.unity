@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &104089354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchManager: {fileID: 0}
+  nexus: {fileID: 0}
   enemyTypes: []
   webs: []
   spiderWebs: []
@@ -334,10 +335,10 @@ MonoBehaviour:
   enemyCount: 0
   end: {fileID: 0}
   start: {fileID: 0}
-  pauseCentralButton: {fileID: 0}
-  pauseEscButton: {fileID: 0}
-  resumeButton: {fileID: 0}
-  gameOverButton: {fileID: 0}
+  pauseCentralButton: {fileID: 1316119902}
+  pauseEscButton: {fileID: 1150002118}
+  resumeButton: {fileID: 104089355}
+  gameOverButton: {fileID: 797753664}
 --- !u!1001 &299939852
 Prefab:
   m_ObjectHideFlags: 0
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchManager: {fileID: 0}
+  nexus: {fileID: 0}
   enemyTypes: []
   webs: []
   spiderWebs: []
@@ -448,10 +450,10 @@ MonoBehaviour:
   enemyCount: 0
   end: {fileID: 0}
   start: {fileID: 0}
-  pauseCentralButton: {fileID: 0}
-  pauseEscButton: {fileID: 0}
-  resumeButton: {fileID: 0}
-  gameOverButton: {fileID: 0}
+  pauseCentralButton: {fileID: 1316119902}
+  pauseEscButton: {fileID: 1150002118}
+  resumeButton: {fileID: 104089355}
+  gameOverButton: {fileID: 797753664}
   currentTrapID: 0
   currentStage: 0
 --- !u!1 &314289256
@@ -593,6 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchManager: {fileID: 1832176244}
+  nexus: {fileID: 0}
   enemyTypes: []
   webs: []
   spiderWebs: []
@@ -606,7 +609,7 @@ MonoBehaviour:
   enemyCount: 0
   end: {fileID: 0}
   start: {fileID: 0}
-  pauseCentralButton: {fileID: 1316119904}
+  pauseCentralButton: {fileID: 1316119902}
   pauseEscButton: {fileID: 1150002118}
   resumeButton: {fileID: 104089355}
   gameOverButton: {fileID: 797753664}
@@ -1172,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &797753663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2120,14 +2123,13 @@ GameObject:
   - component: {fileID: 1316119903}
   - component: {fileID: 1316119906}
   - component: {fileID: 1316119905}
-  - component: {fileID: 1316119904}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1316119903
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2146,47 +2148,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1316119904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1316119902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1316119905}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1316119905
 MonoBehaviour:
   m_ObjectHideFlags: 0
