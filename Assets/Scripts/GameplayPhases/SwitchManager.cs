@@ -15,12 +15,11 @@ public class SwitchManager : MonoBehaviour
 		enemyWavesPhase.enabled = false;
 		preparationPhase.OnActivation();
 		preparationPhase.maxLinksCount++;
-		//gameManager.isPreparationPhase = true;
-	}
+    }
 
 	public void SwitchOnEnemyWavesPhase()
 	{
-        Debug.Log("Entra nel metodo");
+        //Debug.Log("Entra nel metodo");
         enemyWavesPhase.enabled = true;
 		preparationPhase.enabled = false;
 		enemyWavesPhase.OnActivation();

@@ -10,11 +10,14 @@ public class EnemySpawn : MonoBehaviour
     public SpawnEnemyType Choose;
     public float timer;
     [HideInInspector] public GameManager _gm;
+    [HideInInspector] public EnemyWavesPhase enemyWavesPhase;
 
 
     void Awake()
     {
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        enemyWavesPhase = GameObject.Find("EnemyWavesPhase").GetComponent<EnemyWavesPhase>();
+
         timer = SpawnTime;
     }
 
@@ -26,6 +29,7 @@ public class EnemySpawn : MonoBehaviour
             Quaternion rot = gameObject.transform.rotation;
             Instantiate(_gm.enemyTypes[Random.Range(1,3)], pos, rot);
             _gm.enemyCount++;
+            //enemyWavesPhase.enemyCount++;
         }
         else
         {
@@ -33,9 +37,11 @@ public class EnemySpawn : MonoBehaviour
             Quaternion rot = gameObject.transform.rotation;
             Instantiate(_gm.enemyTypes[(int)enemyType], pos, rot);
             _gm.enemyCount++;
+            //enemyWavesPhase.enemyCount++;
         }
 
 		_gm.totalEnemies--;
+        //enemyWavesPhase.totalEnemies--;
     }
 
     // Update is called once per frame

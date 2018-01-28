@@ -18,11 +18,13 @@ public class GameManager : MonoBehaviour
 	public int clickCount = 0;
 	public int startHP;
 	public int currentHP;
-	public int enemiesPerTurn;
-	public int totalEnemies;
+    [HideInInspector]
+    public int enemiesPerTurn = 8;
+    [HideInInspector]
+    public int totalEnemies;
 	private bool isPaused;
 
-	//[HideInInspector]
+	[HideInInspector]
 	public int enemyCount;
 	[HideInInspector]
 	public GameObject end;
@@ -51,10 +53,10 @@ public class GameManager : MonoBehaviour
 		}
 
 		// Switches to Preparation Phase
-		if (!isPreparationPhase && enemiesPerTurn == 0 && enemyCount == 0)
+		if (!isPreparationPhase && totalEnemies == 0 && enemyCount == 0)
 		{
-			switchManager.SwitchOnPreparationPhase();
-			isPreparationPhase = true;
+            isPreparationPhase = true;
+            switchManager.SwitchOnPreparationPhase();			
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
 	public void SwitchOnEnemyWavePhase()
 	{
 		isPreparationPhase = false;
-		switchManager.SwitchOnEnemyWavesPhase();
+        switchManager.SwitchOnEnemyWavesPhase();
 	}
 
 	public void PauseGame()
