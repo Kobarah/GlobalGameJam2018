@@ -83,9 +83,12 @@ public class PreparationPhase : GameManager
 				else
 				{
 					start = end;
-					end = hit.transform.gameObject;
-					SpiderString webString = new SpiderString(start, end);
-                    if (isLegit(webString)) webs.Add(webString);
+					SpiderString webString = new SpiderString(start, hit.transform.gameObject);
+                    if (isLegit(webString))
+                    {
+                        webs.Add(webString);
+                        end = hit.transform.gameObject;
+                    }
                 }
 				clickCount++;
                 Debug.Log(clickCount);
