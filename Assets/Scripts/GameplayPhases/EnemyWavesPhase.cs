@@ -10,7 +10,7 @@ public class EnemyWavesPhase : GameManager
 
 		for (int i = 0; i < spawnPoints.Count; i++)
 		{
-			//spawnPoints[i].transform.SetActive(true);
+			spawnPoints[i].SetActive(true);
 		}
 	}
 

@@ -26,6 +26,11 @@ public class PreparationPhase : GameManager
 	{
 		currentStage = PreparationStage.SpiderStringPlacement;
 		ClearWebstrings();
+
+		for (int i = 0; i < spawnPoints.Count; i++)
+		{
+			spawnPoints[i].SetActive(false);
+		}
 	}
 
 	public void ChangeStage()
