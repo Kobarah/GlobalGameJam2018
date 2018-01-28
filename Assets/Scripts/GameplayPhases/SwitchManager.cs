@@ -23,6 +23,8 @@ public class SwitchManager : MonoBehaviour
 		enemyWavesPhase.enabled = true;
 		preparationPhase.enabled = false;
 		enemyWavesPhase.OnActivation();
+		enemyWavesPhase.enemiesPerTurn++;
+		enemyWavesPhase.totalEnemies = enemyWavesPhase.enemiesPerTurn;
 	}
 
 }

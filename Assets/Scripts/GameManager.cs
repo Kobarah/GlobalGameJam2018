@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	public List<GameObject> enemyTypes;
 	public List<SpiderString> webs;
 	public List<GameObject> spiderWebs;
+	public List<GameObject> spawnPoints;
 	public GameObject spiderWeb;
 	public GameObject cameraMain;
 	public bool isPreparationPhase = true;			// true = preparation phase; false = enemy waves phase
@@ -18,13 +19,14 @@ public class GameManager : MonoBehaviour
 	public int startHP;
 	public int currentHP;
 	public int enemiesPerTurn;
+	public int totalEnemies;
 	private bool isPaused;
 
 	//[HideInInspector]
 	public int enemyCount;
 	[HideInInspector]
 	public GameObject end;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject start;
 
 	public GameObject pauseCentralButton;

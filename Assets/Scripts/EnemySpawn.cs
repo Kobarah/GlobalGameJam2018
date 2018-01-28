@@ -34,6 +34,8 @@ public class EnemySpawn : MonoBehaviour
             Instantiate(_gm.enemyTypes[(int)enemyType], pos, rot);
             _gm.enemyCount++;
         }
+
+		_gm.totalEnemies--;
     }
 
     // Update is called once per frame
@@ -45,12 +47,11 @@ public class EnemySpawn : MonoBehaviour
         }
         else
         {
-            if (_gm.enemyCount < _gm.enemiesPerTurn)
+            if (_gm.totalEnemies > 0)
             {
                 SpawnEnemy(Choose);
                 timer = SpawnTime;
             }
         }
-
     }
 }

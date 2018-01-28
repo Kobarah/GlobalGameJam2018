@@ -6,14 +6,19 @@ public class EnemyWavesPhase : GameManager
 {
 	public override void OnActivation()
 	{
-		ClearWebstrings();
+		//ClearWebstrings();
+
+		for (int i = 0; i < spawnPoints.Count; i++)
+		{
+			//spawnPoints[i].transform.SetActive(true);
+		}
 	}
 
-	public override void ClearWebstrings()
-	{
-	}
+	//public override void ClearWebstrings()
+	//{
+	//}
 
-	public override void MoveWebstrings()
-	{
-	}
+	//public override void MoveWebstrings()
+	//{
+	//}
 }
