@@ -73,17 +73,20 @@ public class PreparationPhase : GameManager
 				}
 				else if (clickCount == 1)
 				{
-					end = hit.transform.gameObject;
-                    SpiderString webString = new SpiderString(start, end);
-                    if (isLegit(webString)) webs.Add(webString);
-				}
+                    SpiderString webString = new SpiderString(start, hit.transform.gameObject);
+                    if (isLegit(webString))
+                    {
+                        webs.Add(webString);
+                        end = hit.transform.gameObject;
+                    }
+                }
 				else
 				{
 					start = end;
 					end = hit.transform.gameObject;
 					SpiderString webString = new SpiderString(start, end);
                     if (isLegit(webString)) webs.Add(webString);
-				}
+                }
 				clickCount++;
                 Debug.Log(clickCount);
 			}

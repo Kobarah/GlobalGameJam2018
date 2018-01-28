@@ -99,7 +99,14 @@ public class SpiderString : ScriptableObject {
     public override bool Equals(object other)
     {
         SpiderString ss = (SpiderString)other;
-        return (((this.toJoint.transform.position == ss.toJoint.transform.position) && (this.fromJoint.transform.position == ss.fromJoint.transform.position)) 
-            || ((this.toJoint.transform.position == ss.fromJoint.transform.position) && (this.fromJoint.transform.position == ss.toJoint.transform.position)));
+        if ((this.toJoint.transform.position == ss.toJoint.transform.position) && (this.fromJoint.transform.position == ss.fromJoint.transform.position))
+        {
+            return true;
+        }
+        else if ((this.toJoint.transform.position == ss.fromJoint.transform.position) && (this.fromJoint.transform.position == ss.toJoint.transform.position))
+        {
+            return true;
+        }
+        else return false;
     }
 }
