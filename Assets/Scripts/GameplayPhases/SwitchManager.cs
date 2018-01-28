@@ -21,7 +21,7 @@ public class SwitchManager : MonoBehaviour
 	{
         //Debug.Log("Entra nel metodo");
         enemyWavesPhase.enabled = true;
-		preparationPhase.enabled = false;
+		//preparationPhase.enabled = false;
 		enemyWavesPhase.OnActivation();
 		gameManager.enemiesPerTurn+=2;
         enemyWavesPhase.enemiesPerTurn += 2;

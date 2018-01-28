@@ -77,7 +77,7 @@ public class PreparationPhase : GameManager
 	}
 
     public void AddWebs(GameObject joint)
-	{
+    {
         if (clickCount == 0)
         {
             start = joint;
@@ -106,9 +106,9 @@ public class PreparationPhase : GameManager
             clickCount++;
             Debug.Log(clickCount);
         }
-	}
+    }
 
-	public void AddTurrets(GameObject joint)
+    public void AddTurrets(GameObject joint)
 	{
         Debug.Log(currentTrapID);
         if (joint.GetComponent<JointInfo>().activeTrap == null && currentTrapID != null)
@@ -119,7 +119,7 @@ public class PreparationPhase : GameManager
 
     }
 
-	public bool isLegit (SpiderString ss)
+    public bool isLegit(SpiderString ss)
     {
         if (ss.fromJoint == ss.toJoint)
         {
