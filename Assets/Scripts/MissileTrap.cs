@@ -9,7 +9,5 @@ public class MissileTrap : Traps
     public override void DamageEnemy(GameObject enemy)
     {
         enemy.GetComponent<Enemy>().hp -= dmg;
-        if (enemy.GetComponent<Enemy>().hp <= 0)
-            Destroy(enemy);
     }
 }

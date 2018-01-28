@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpawnEnemyType { Random = 0, enemy2 = 1, enemy = 2 };
+public enum SpawnEnemyType { enemy1 = 0, enemy2 = 1, enemy3 = 2, Random = 3};
 
 public class EnemySpawn : MonoBehaviour
 {
     public float SpawnTime = 5;
     public SpawnEnemyType Choose;
-    [HideInInspector] public float timer;
+    public float timer;
     [HideInInspector] public GameManager _gm;
 
 
@@ -24,14 +24,14 @@ public class EnemySpawn : MonoBehaviour
         {
             Vector3 pos = gameObject.transform.position;
             Quaternion rot = gameObject.transform.rotation;
-           // Instantiate(_gm.enemyTypes[Random.Range(0,3)], pos, rot);
+            Instantiate(_gm.enemyTypes[Random.Range(1,3)], pos, rot);
             _gm.enemyCount++;
         }
         else
         {
             Vector3 pos = gameObject.transform.position;
             Quaternion rot = gameObject.transform.rotation;
-          //  Instantiate(_gm.enemyTypes[(int)enemyType], pos, rot);
+            Instantiate(_gm.enemyTypes[(int)enemyType], pos, rot);
             _gm.enemyCount++;
         }
     }
