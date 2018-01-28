@@ -10,8 +10,9 @@ public class PreparationPhase : GameManager
 		TrapPlacement
 	};
 
+	public List<GameObject> turrets;
 	public int maxLinksCount = 5;
-	public int currentTrapID;
+	public GameObject currentTrapID;
 	public PreparationStage currentStage = PreparationStage.SpiderStringPlacement;
 
 	public override void Update()
@@ -23,7 +24,6 @@ public class PreparationPhase : GameManager
 
 	public override void OnActivation()
 	{
-		maxLinksCount++;
 		currentStage = PreparationStage.SpiderStringPlacement;
 		ClearWebstrings();
 	}
@@ -42,6 +42,10 @@ public class PreparationPhase : GameManager
 		{
 			AddWebs();
 		}
+		if (this.currentStage == PreparationStage.TrapPlacement && Input.GetMouseButtonDown(0))
+		{
+			AddTurrets();
+		}
 	}
 
 	// Instantiates traps
@@ -53,7 +57,7 @@ public class PreparationPhase : GameManager
 			{
 				if (trapID == i)
 				{
-					// turrets[i]
+					currentTrapID = turrets[i].gameObject;
 				}
 			}
 		}
@@ -105,7 +109,24 @@ public class PreparationPhase : GameManager
 		}
 	}
 
-    public bool isLegit (SpiderString ss)
+	public void AddTurrets()
+	{
+		RaycastHit hit;
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(cameraMain.transform.position, ray.direction, out hit))
+		{
+			if (hit.transform.tag == "WebJoint")
+			{
+				if (hit.transform.GetComponent<JointInfo>().activeTrap == null && currentTrapID != null)
+				{					
+					hit.transform.GetComponent<JointInfo>().activeTrap = Instantiate(currentTrapID, hit.transform);
+					hit.transform.GetComponent<JointInfo>().activeTrap.transform.position = hit.transform.position;
+				}
+			}
+		}
+	}
+
+	public bool isLegit (SpiderString ss)
     {
         if (ss.fromJoint == ss.toJoint)
         {

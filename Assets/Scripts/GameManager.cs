@@ -11,10 +11,9 @@ public class GameManager : MonoBehaviour
 	public List<GameObject> enemyTypes;
 	public List<SpiderString> webs;
 	public List<GameObject> spiderWebs;
-	public List<GameObject> turrets;
 	public GameObject spiderWeb;
 	public GameObject cameraMain;
-	public bool isPreparationPhase;			// true = preparation phase; false = enemy waves phase
+	public bool isPreparationPhase = true;			// true = preparation phase; false = enemy waves phase
 	public int clickCount = 0;
 	public int startHP;
 	public int currentHP;
@@ -37,8 +36,8 @@ public class GameManager : MonoBehaviour
 	{
 		webs = new List<SpiderString>();
 		spiderWebs = new List<GameObject>();
-		turrets = new List<GameObject>();
 		switchManager = FindObjectOfType<SwitchManager>().GetComponent<SwitchManager>();
+		isPreparationPhase = true;
 	}
 
 	public virtual void Update()
@@ -52,8 +51,8 @@ public class GameManager : MonoBehaviour
 		// Switches to Preparation Phase
 		if (!isPreparationPhase && enemiesPerTurn == 0 && enemyCount == 0)
 		{
-			isPreparationPhase = true;
 			switchManager.SwitchOnPreparationPhase();
+			isPreparationPhase = true;
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape))

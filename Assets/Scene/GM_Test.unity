@@ -325,7 +325,6 @@ MonoBehaviour:
   enemyTypes: []
   webs: []
   spiderWebs: []
-  turrets: []
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 1244499750}
   isPreparationPhase: 0
@@ -441,7 +440,6 @@ MonoBehaviour:
   enemyTypes: []
   webs: []
   spiderWebs: []
-  turrets: []
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 1244499750}
   isPreparationPhase: 0
@@ -456,8 +454,12 @@ MonoBehaviour:
   pauseEscButton: {fileID: 1150002118}
   resumeButton: {fileID: 104089355}
   gameOverButton: {fileID: 797753664}
+  turrets:
+  - {fileID: 1975372014259538, guid: 628cc161c78a52c4c878d2d6058f5efb, type: 2}
+  - {fileID: 1975372014259538, guid: 628cc161c78a52c4c878d2d6058f5efb, type: 2}
+  - {fileID: 1975372014259538, guid: 628cc161c78a52c4c878d2d6058f5efb, type: 2}
   maxLinksCount: 5
-  currentTrapID: 0
+  currentTrapID: {fileID: 0}
   currentStage: 0
 --- !u!1 &314289256
 GameObject:
@@ -602,10 +604,6 @@ MonoBehaviour:
   enemyTypes: []
   webs: []
   spiderWebs: []
-  turrets:
-  - {fileID: 1975372014259538, guid: 628cc161c78a52c4c878d2d6058f5efb, type: 2}
-  - {fileID: 1975372014259538, guid: 628cc161c78a52c4c878d2d6058f5efb, type: 2}
-  - {fileID: 1975372014259538, guid: 628cc161c78a52c4c878d2d6058f5efb, type: 2}
   spiderWeb: {fileID: 1240979565897684, guid: 73fe9844f637841459f47fd581f34c27, type: 2}
   cameraMain: {fileID: 1244499750}
   isPreparationPhase: 0
@@ -2578,6 +2576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preparationPhase: {fileID: 310558361}
   enemyWavesPhase: {fileID: 251572524}
+  gameManager: {fileID: 354064070}
 --- !u!4 &1832176245
 Transform:
   m_ObjectHideFlags: 0
